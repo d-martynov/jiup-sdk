@@ -4,7 +4,7 @@ import ru.dmartynov.jiup.sdk.nativ.Ihandle;
 import ru.dmartynov.jiup.sdk.nativ.Icallback;
 
 /**
- * Created by Дмитрий on 02.10.2015.
+ * Created by Р”РјРёС‚СЂРёР№ on 02.10.2015.
  */
 public interface ACTION extends Icallback {
     /**

@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Created by Äìèòğèé on 02.10.2015.
+ * Created by Ğ”Ğ¼Ğ¸Ñ‚Ñ€Ğ¸Ğ¹ on 02.10.2015.
  */
 public abstract class Container extends Control {
     private List<Control> childs = new LinkedList<Control>();

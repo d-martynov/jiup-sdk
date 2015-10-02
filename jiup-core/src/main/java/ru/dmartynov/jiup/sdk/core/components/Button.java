@@ -5,7 +5,7 @@ import ru.dmartynov.jiup.sdk.nativ.Ihandle;
 import ru.dmartynov.jiup.sdk.nativ.Iup;
 
 /**
- * Created by Äìèòğèé on 02.10.2015.
+ * Created by Ğ”Ğ¼Ğ¸Ñ‚Ñ€Ğ¸Ğ¹ on 02.10.2015.
  */
 public class Button extends Widget {
     public Button(String title) {

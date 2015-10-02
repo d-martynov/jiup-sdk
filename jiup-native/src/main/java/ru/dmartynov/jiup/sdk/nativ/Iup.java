@@ -5,7 +5,7 @@ import com.sun.jna.Library;
 import com.sun.jna.Native;
 
 /**
- * Created by Дмитрий on 02.10.2015.
+ * Created by Р”РјРёС‚СЂРёР№ on 02.10.2015.
  */
 public interface Iup extends Library {
     Iup INST = (Iup) Native.loadLibrary("iup", Iup.class);

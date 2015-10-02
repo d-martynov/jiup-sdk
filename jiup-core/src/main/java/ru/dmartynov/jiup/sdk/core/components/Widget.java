@@ -3,7 +3,7 @@ package ru.dmartynov.jiup.sdk.core.components;
 import ru.dmartynov.jiup.sdk.nativ.Ihandle;
 
 /**
- * Created by Äìèòğèé on 02.10.2015.
+ * Created by Ğ”Ğ¼Ğ¸Ñ‚Ñ€Ğ¸Ğ¹ on 02.10.2015.
  */
 public abstract class Widget extends Control {
     public Widget(Ihandle ihandle) {

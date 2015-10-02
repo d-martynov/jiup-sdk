@@ -4,7 +4,7 @@ import ru.dmartynov.jiup.sdk.nativ.Icallback;
 import ru.dmartynov.jiup.sdk.nativ.Ihandle;
 
 /**
- * Created by Дмитрий on 03.10.2015.
+ * Created by Р”РјРёС‚СЂРёР№ on 03.10.2015.
  */
 public interface OPEN_CB extends Icallback {
     /**

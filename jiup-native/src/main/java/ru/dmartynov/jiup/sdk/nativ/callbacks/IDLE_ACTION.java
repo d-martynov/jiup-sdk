@@ -3,7 +3,7 @@ package ru.dmartynov.jiup.sdk.nativ.callbacks;
 import ru.dmartynov.jiup.sdk.nativ.Icallback;
 
 /**
- * Created by Дмитрий on 03.10.2015.
+ * Created by Р”РјРёС‚СЂРёР№ on 03.10.2015.
  */
 
 public interface IDLE_ACTION extends Icallback {

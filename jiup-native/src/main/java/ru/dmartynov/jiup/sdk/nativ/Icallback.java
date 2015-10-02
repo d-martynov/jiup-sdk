@@ -4,7 +4,7 @@ package ru.dmartynov.jiup.sdk.nativ;
 import com.sun.jna.Callback;
 
 /**
- * Created by Äìèòğèé on 02.10.2015.
+ * Created by Ğ”Ğ¼Ğ¸Ñ‚Ñ€Ğ¸Ğ¹ on 02.10.2015.
  */
 public interface Icallback extends Callback {
 }
