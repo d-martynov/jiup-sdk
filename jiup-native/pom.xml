@@ -11,6 +11,10 @@
 
     <artifactId>jiup-native</artifactId>
 
+    <properties>
+        <release.natives>lib/</release.natives>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>net.java.dev.jna</groupId>
@@ -18,6 +22,7 @@
             <version>4.2.0</version>
         </dependency>
     </dependencies>
+
 
 
 </project>

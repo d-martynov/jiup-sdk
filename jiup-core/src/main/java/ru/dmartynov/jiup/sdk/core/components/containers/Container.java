@@ -1,6 +1,7 @@
-package ru.dmartynov.jiup.sdk.core.containers;
+package ru.dmartynov.jiup.sdk.core.components.containers;
 
 import ru.dmartynov.jiup.sdk.core.IupObject;
+import ru.dmartynov.jiup.sdk.core.components.Component;
 import ru.dmartynov.jiup.sdk.core.components.Control;
 import ru.dmartynov.jiup.sdk.nativ.Ihandle;
 
@@ -11,13 +12,13 @@ import java.util.List;
  * Created by Дмитрий on 02.10.2015.
  */
 public abstract class Container extends Control {
-    private List<Control> childs = new LinkedList<Control>();
+    private List<Component> childs = new LinkedList<Component>();
 
     public Container(Ihandle ihandle) {
         super(ihandle);
     }
 
-    public List<Control> getChilds() {
+    public List<Component> getChilds() {
         return childs;
     }
 
@@ -27,12 +28,12 @@ public abstract class Container extends Control {
     }
 
 
-    public void append(Control child) {
+    public void append(Component child) {
         IupObject.$.IupAppend(getIhandle(), child.getIhandle());
         childs.add(child);
     }
 
-    public void insert(Control child, int position) {
+    public void insert(Component child, int position) {
         IupObject.$.IupInsert(getIhandle(), childs.size() > 1 ? childs.get(position - 1).getIhandle() : null,
                 child.getIhandle());
         childs.add(position, child);
