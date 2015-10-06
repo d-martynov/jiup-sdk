@@ -1,4 +1,4 @@
-package ru.dmartynov.jiup.sdk.nativ.callbacks;
+package ru.dmartynov.jiup.sdk.nativ.callbacks.dialog;
 
 import ru.dmartynov.jiup.sdk.nativ.Icallback;
 import ru.dmartynov.jiup.sdk.nativ.Ihandle;

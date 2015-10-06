@@ -13,8 +13,8 @@ import java.lang.annotation.Target;
 
 @Target(value = ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface NativeCallback {
+public @interface Native {
     Class<? extends Icallback> value();
 
-    NativeCallbackMap[] callbackMap() default @NativeCallbackMap(nativeParamIndex = -1, targetParamIndex = -1);
+    NativeMap[] callbackMap() default @NativeMap(targetParamIndex = -1, nativeParamIndex = -1);
 }

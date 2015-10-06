@@ -7,14 +7,14 @@ import ru.dmartynov.jiup.sdk.core.listeners.OnClickListener;
 /**
  * Created by Дмитрий on 02.10.2015.
  */
-public class Button extends Control {
-    private OnClickListener onClickListener;
+public class Button extends Control implements OnClickListener.Have {
 
     public Button(String title) {
         super($.IupButton(title, null));
     }
 
+    @Override
     public void setOnClickListener(OnClickListener onClickListener) {
-        this.onClickListener = onClickListener;
+
     }
 }

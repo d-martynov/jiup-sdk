@@ -1,11 +1,12 @@
 package ru.dmartynov.jiup.sdk.nativ.callbacks;
 
+import ru.dmartynov.jiup.sdk.nativ.Icallback;
 import ru.dmartynov.jiup.sdk.nativ.Ihandle;
 
 /**
  * Created by Дмитрий on 03.10.2015.
  */
-public interface MAP_CB {
+public interface MAP_CB extends Icallback{
 
     /**
      * Called right after an element is mapped and its attributes updated in IupMap.

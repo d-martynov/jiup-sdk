@@ -11,9 +11,12 @@ import java.lang.annotation.Target;
 
 @Target(value = ElementType.ANNOTATION_TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface NativeCallbackMap {
+public @interface NativeMap {
     int nativeParamIndex();
+
     int targetParamIndex();
+
+    Class<? extends TypeTransformer> typeTransformer() default TypeTransformer.class;
 
 
 }
