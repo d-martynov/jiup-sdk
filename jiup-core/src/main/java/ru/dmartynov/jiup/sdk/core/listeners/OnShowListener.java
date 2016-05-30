@@ -3,6 +3,8 @@ package ru.dmartynov.jiup.sdk.core.listeners;
 import ru.dmartynov.jiup.sdk.core.StateTransformer;
 import ru.dmartynov.jiup.sdk.core.annotations.Native;
 import ru.dmartynov.jiup.sdk.core.annotations.NativeMap;
+import ru.dmartynov.jiup.sdk.core.listeners.markers.CommonListener;
+import ru.dmartynov.jiup.sdk.core.listeners.markers.DialogListener;
 import ru.dmartynov.jiup.sdk.nativ.callbacks.dialog.SHOW_CB;
 
 /**
@@ -10,7 +12,7 @@ import ru.dmartynov.jiup.sdk.nativ.callbacks.dialog.SHOW_CB;
  */
 @Native(value = SHOW_CB.class, callbackMap = @NativeMap(nativeParamIndex = 1, targetParamIndex = 0,
         typeTransformer = StateTransformer.class))
-public interface OnShowListener extends BaseListener {
+public interface OnShowListener extends DialogListener {
     int onShow(State state);
     enum State {
         //TODO: Incorrect elements order
@@ -19,10 +21,5 @@ public interface OnShowListener extends BaseListener {
         MINIMIZE,
         HIDE,
         MAXIMIZE,
-    }
-
-    interface Have {
-        void setOnShowListener(OnShowListener onShowListener);
-
     }
 }

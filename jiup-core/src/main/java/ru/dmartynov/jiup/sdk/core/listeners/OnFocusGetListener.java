@@ -1,6 +1,7 @@
 package ru.dmartynov.jiup.sdk.core.listeners;
 
 import ru.dmartynov.jiup.sdk.core.annotations.Native;
+import ru.dmartynov.jiup.sdk.core.listeners.markers.CommonListener;
 import ru.dmartynov.jiup.sdk.nativ.callbacks.GETFOCUS_CB;
 
 /**
@@ -8,10 +9,6 @@ import ru.dmartynov.jiup.sdk.nativ.callbacks.GETFOCUS_CB;
  */
 
 @Native(GETFOCUS_CB.class)
-public interface OnFocusGetListener extends BaseListener {
+public interface OnFocusGetListener extends CommonListener {
     int onFocusGet();
-
-    interface Have {
-        void setOnGetFocusListener(OnFocusGetListener onFocusGetListener);
-    }
 }

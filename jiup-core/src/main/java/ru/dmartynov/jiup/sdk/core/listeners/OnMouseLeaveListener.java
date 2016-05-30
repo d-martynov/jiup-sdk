@@ -1,6 +1,7 @@
 package ru.dmartynov.jiup.sdk.core.listeners;
 
 import ru.dmartynov.jiup.sdk.core.annotations.Native;
+import ru.dmartynov.jiup.sdk.core.listeners.markers.CommonListener;
 import ru.dmartynov.jiup.sdk.nativ.callbacks.LEAVEWINDOW_CB;
 
 /**
@@ -8,10 +9,6 @@ import ru.dmartynov.jiup.sdk.nativ.callbacks.LEAVEWINDOW_CB;
  */
 
 @Native(LEAVEWINDOW_CB.class)
-public interface OnMouseLeaveListener extends BaseListener {
+public interface OnMouseLeaveListener extends CommonListener {
     int onMouseLeave();
-
-    interface Have {
-        void setOnMouseLeaveListener(OnMouseLeaveListener onMouseLeaveListener);
-    }
 }

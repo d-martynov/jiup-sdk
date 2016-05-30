@@ -1,17 +1,22 @@
 package ru.dmartynov.jiup.sdk.core;
 
+import ru.dmartynov.jiup.sdk.core.annotations.Native;
+import ru.dmartynov.jiup.sdk.core.annotations.NativeMap;
+import ru.dmartynov.jiup.sdk.core.annotations.TypeTransformer;
 import ru.dmartynov.jiup.sdk.core.components.Size;
-import ru.dmartynov.jiup.sdk.core.listeners.*;
+import ru.dmartynov.jiup.sdk.nativ.Icallback;
 import ru.dmartynov.jiup.sdk.nativ.Ihandle;
 import ru.dmartynov.jiup.sdk.nativ.Iup;
+
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 
 /**
  * Created by Дмитрий on 02.10.2015.
  */
 
-public abstract class IupObject implements OnMappedListener.Have, OnUnmappedListener.Have, OnDestroyListener.Have,
-        OnFocusGetListener.Have, OnFocusLossListener.Have, OnMouseHoverListener.Have, OnMouseLeaveListener.Have,
-        OnKeyboardEventListener.Have {
+public abstract class IupObject<ListenerClass> {
     public static Iup $ = Iup.INST;
 
     private Ihandle ihandle;
@@ -53,59 +58,52 @@ public abstract class IupObject implements OnMappedListener.Have, OnUnmappedList
         $.IupSetAttribute(ihandle, "SIZE", width + "x" + height);
     }
 
-    @Override
-    public void setOnMappedListener(OnMappedListener onMappedListener) {
-        /**
-         * Auto Implemented by Aspect
-         */
+
+    public <T extends ListenerClass> void addListener(final T listener) {
+        Class<?> listenerClass = listener.getClass().getInterfaces()[0];
+        Native nativeAnnotation = listenerClass.getAnnotation(Native.class);
+        if (nativeAnnotation == null)
+            return;
+
+        final Class<? extends Icallback> icallbackClass = nativeAnnotation.value();
+        final NativeMap[] nativeMaps = nativeAnnotation.callbackMap();
+        final Method targetMethod = listenerClass.getMethods()[0];
+
+        InvocationHandler invocationHandler = new InvocationHandler() {
+            @Override
+            public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+                if (icallbackClass.getMethods()[0].getName().equals(method.getName())) {
+                    Object[] parms = mapParams(nativeMaps, args);
+                    return targetMethod.invoke(listener, parms);
+                }
+                return method.invoke(listener, args);
+            }
+        };
+
+
+        Icallback icallbackProxy = (Icallback) Proxy.newProxyInstance(icallbackClass.getClassLoader(), new Class[]{icallbackClass},
+                invocationHandler);
+
+        Iup.INST.IupSetCallback(getIhandle(), icallbackClass.getSimpleName(), icallbackProxy);
     }
 
-    @Override
-    public void setOnUnmappedListener(OnUnmappedListener onUnmappedListener) {
-        /**
-         * Auto Implemented by Aspect
-         */
-    }
+    private Object[] mapParams(NativeMap[] callbackMap, Object[] nativeParams) throws IllegalAccessException, InstantiationException {
+        if (callbackMap.length == 1 && callbackMap[0].nativeParamIndex() == -1 && callbackMap[0].targetParamIndex() == -1)
+            return null;
 
-    @Override
-    public void setOnDestroyListener(OnDestroyListener onDestroyListener) {
-        /**
-         * Auto Implemented by Aspect
-         */
-    }
+        Object[] result = new Object[callbackMap.length];
 
-    @Override
-    public void setOnGetFocusListener(OnFocusGetListener onFocusGetListener) {
-        /**
-         * Auto Implemented by Aspect
-         */
-    }
 
-    @Override
-    public void setOnFocusLossListener(OnFocusLossListener onFocusLossListener) {
-        /**
-         * Auto Implemented by Aspect
-         */
-    }
+        for (NativeMap cm : callbackMap) {
+            Class<? extends TypeTransformer> typeTransformerClass = cm.typeTransformer();
+            if (typeTransformerClass == TypeTransformer.class) {
+                result[cm.targetParamIndex()] = nativeParams[cm.nativeParamIndex()];
+            } else {
+                TypeTransformer typeTransformer = typeTransformerClass.newInstance();
+                result[cm.targetParamIndex()] = typeTransformer.transform(nativeParams[cm.nativeParamIndex()]);
+            }
+        }
 
-    @Override
-    public void setOnMouseHoverListener(OnMouseHoverListener onMouseHoverListener) {
-        /**
-         * Auto Implemented by Aspect
-         */
-    }
-
-    @Override
-    public void setOnMouseLeaveListener(OnMouseLeaveListener onMouseLeaveListener) {
-        /**
-         * Auto Implemented by Aspect
-         */
-    }
-
-    @Override
-    public void setOnKeyboardEventListener(OnKeyboardEventListener onKeyboardEventListener) {
-        /**
-         * Auto Implemented by Aspect
-         */
+        return result;
     }
 }

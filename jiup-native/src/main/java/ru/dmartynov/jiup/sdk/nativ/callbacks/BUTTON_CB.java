@@ -1,7 +1,7 @@
 package ru.dmartynov.jiup.sdk.nativ.callbacks;
 
-import ru.dmartynov.jiup.sdk.nativ.Ihandle;
 import ru.dmartynov.jiup.sdk.nativ.Icallback;
+import ru.dmartynov.jiup.sdk.nativ.Ihandle;
 
 /**
  * Created by Дмитрий on 02.10.2015.

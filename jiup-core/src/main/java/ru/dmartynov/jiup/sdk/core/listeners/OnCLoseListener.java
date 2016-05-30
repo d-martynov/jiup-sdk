@@ -1,6 +1,7 @@
 package ru.dmartynov.jiup.sdk.core.listeners;
 
 import ru.dmartynov.jiup.sdk.core.annotations.Native;
+import ru.dmartynov.jiup.sdk.core.listeners.markers.DialogListener;
 import ru.dmartynov.jiup.sdk.nativ.callbacks.dialog.CLOSE_CB;
 
 /**
@@ -8,7 +9,7 @@ import ru.dmartynov.jiup.sdk.nativ.callbacks.dialog.CLOSE_CB;
  */
 
 @Native(CLOSE_CB.class)
-public interface OnCloseListener extends BaseListener {
+public interface OnCloseListener extends DialogListener {
     int onClose();
 
     interface Have {

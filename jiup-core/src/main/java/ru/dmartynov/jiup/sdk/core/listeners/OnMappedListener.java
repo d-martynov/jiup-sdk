@@ -1,6 +1,7 @@
 package ru.dmartynov.jiup.sdk.core.listeners;
 
 import ru.dmartynov.jiup.sdk.core.annotations.Native;
+import ru.dmartynov.jiup.sdk.core.listeners.markers.CommonListener;
 import ru.dmartynov.jiup.sdk.nativ.callbacks.MAP_CB;
 
 /**
@@ -8,10 +9,6 @@ import ru.dmartynov.jiup.sdk.nativ.callbacks.MAP_CB;
  */
 
 @Native(MAP_CB.class)
-public interface OnMappedListener extends BaseListener {
+public interface OnMappedListener extends CommonListener {
     int onMapped();
-
-    interface Have {
-        void setOnMappedListener(OnMappedListener onMappedListener);
-    }
 }

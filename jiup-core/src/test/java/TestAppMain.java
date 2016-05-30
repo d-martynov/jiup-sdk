@@ -16,8 +16,8 @@ public class TestAppMain extends Application {
 
     @Override
     protected Dialog getMainDialog() {
-        Button button = new Button("Test button");
-        button.setOnClickListener(new OnClickListener() {
+        Button button = new Button("Тестовая кнопка");
+        button.addListener(new OnClickListener() {
             @Override
             public int onClick() {
                 System.out.println("Button clicked");
@@ -36,11 +36,11 @@ public class TestAppMain extends Application {
             @Override
             public int onResize(int width, int height) {
                 System.out.println(width + "x" + height);
-                return 0;
+                return 1;
             }
         };
 
-        dialog.setOnCloseListener(new OnCloseListener() {
+        dialog.addListener(new OnCloseListener() {
             @Override
             public int onClose() {
                 System.out.println("Closing...");
@@ -48,16 +48,16 @@ public class TestAppMain extends Application {
             }
         });
 
-        dialog.setOnNextInstanceRunningListener(new OnNextInstanceRunningListener() {
+        dialog.addListener(new OnNextInstanceRunningListener() {
             @Override
             public int onNextInstanceRunning() {
                 System.out.println("Next instance running....");
                 return 0;
             }
         });
-        dialog.setOnResizeListener(onResizeListener);
+        dialog.addListener(onResizeListener);
 
-        dialog.setOnMoveListener(new OnMoveListener() {
+        dialog.addListener(new OnMoveListener() {
 
             @Override
             public int onMove(int x, int y) {
@@ -66,7 +66,7 @@ public class TestAppMain extends Application {
             }
         });
 
-        dialog.setOnShowListener(new OnShowListener() {
+        dialog.addListener(new OnShowListener() {
             @Override
             public int onShow(State state) {
                 System.out.println("Show: " + state.name());
@@ -74,7 +74,7 @@ public class TestAppMain extends Application {
             }
         });
 
-        dialog.setOnFileDroppedListener(new OnFileDroppedListener() {
+        dialog.addListener(new OnFileDroppedListener() {
             @Override
             public int onFileDropped(String fileName, int num, int x, int y) {
                 System.out.println(fileName);
@@ -82,7 +82,7 @@ public class TestAppMain extends Application {
             }
         });
 
-        dialog.setOnMappedListener(new OnMappedListener() {
+        dialog.addListener(new OnMappedListener() {
             @Override
             public int onMapped() {
                 System.out.println("Mapped");
@@ -90,7 +90,7 @@ public class TestAppMain extends Application {
             }
         });
 
-        dialog.setOnUnmappedListener(new OnUnmappedListener() {
+        dialog.addListener(new OnUnmappedListener() {
             @Override
             public int onUnMapped() {
 
@@ -99,7 +99,7 @@ public class TestAppMain extends Application {
             }
         });
 
-        dialog.setOnDestroyListener(new OnDestroyListener() {
+        dialog.addListener(new OnDestroyListener() {
             @Override
             public int onDestroy() {
 
@@ -108,7 +108,7 @@ public class TestAppMain extends Application {
             }
         });
 
-        dialog.setOnGetFocusListener(new OnFocusGetListener() {
+        dialog.addListener(new OnFocusGetListener() {
             @Override
             public int onFocusGet() {
                 System.out.println("Get focus");
@@ -116,7 +116,7 @@ public class TestAppMain extends Application {
             }
         });
 
-        dialog.setOnFocusLossListener(new OnFocusLossListener() {
+        dialog.addListener(new OnFocusLossListener() {
             @Override
             public int onFocusLoss() {
                 System.out.println("Loss focus");
@@ -124,7 +124,7 @@ public class TestAppMain extends Application {
             }
         });
 
-        dialog.setOnMouseHoverListener(new OnMouseHoverListener() {
+        dialog.addListener(new OnMouseHoverListener() {
             @Override
             public int inMouseHover() {
                 System.out.println("Mouse hover");
@@ -132,7 +132,7 @@ public class TestAppMain extends Application {
             }
         });
 
-        dialog.setOnMouseLeaveListener(new OnMouseLeaveListener() {
+        dialog.addListener(new OnMouseLeaveListener() {
             @Override
             public int onMouseLeave() {
                 System.out.println("Mouse leave");
@@ -140,7 +140,7 @@ public class TestAppMain extends Application {
             }
         });
 
-        dialog.setOnKeyboardEventListener(new OnKeyboardEventListener() {
+        dialog.addListener(new OnKeyboardEventListener() {
             @Override
             public int onKeyboardEvent(int keyIdentifier) {
                 System.out.println("Pressed key id: " + keyIdentifier);

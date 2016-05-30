@@ -2,6 +2,8 @@ package ru.dmartynov.jiup.sdk.core.listeners;
 
 import ru.dmartynov.jiup.sdk.core.annotations.Native;
 import ru.dmartynov.jiup.sdk.core.annotations.NativeMap;
+import ru.dmartynov.jiup.sdk.core.listeners.markers.CommonListener;
+import ru.dmartynov.jiup.sdk.core.listeners.markers.DialogListener;
 import ru.dmartynov.jiup.sdk.nativ.callbacks.RESIZE_CB;
 
 /**
@@ -9,10 +11,6 @@ import ru.dmartynov.jiup.sdk.nativ.callbacks.RESIZE_CB;
  */
 @Native(value = RESIZE_CB.class, callbackMap = {@NativeMap(nativeParamIndex = 1, targetParamIndex = 0),
         @NativeMap(nativeParamIndex = 2, targetParamIndex = 1)})
-public interface OnResizeListener extends BaseListener {
+public interface OnResizeListener extends DialogListener {
     int onResize(int width, int height);
-
-    interface Have {
-        void setOnResizeListener(OnResizeListener onResizeListener);
-    }
 }

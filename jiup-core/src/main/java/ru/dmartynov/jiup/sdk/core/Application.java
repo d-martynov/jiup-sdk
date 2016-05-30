@@ -9,6 +9,7 @@ import ru.dmartynov.jiup.sdk.nativ.Iup;
 public abstract class Application {
     public void start(String[] args) {
         Iup $ = Iup.INST;
+        $.IupSetGlobal("UTF8MODE", "YES");
         $.IupOpen(0, null);
 
         Dialog mainDialog = getMainDialog();
