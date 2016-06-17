@@ -10,7 +10,7 @@ public abstract class Application {
     public void start(String[] args) {
         Iup $ = Iup.INST;
         $.IupSetGlobal("UTF8MODE", "YES");
-        $.IupOpen(0, null);
+        $.IupOpen(0, args);
 
         Dialog mainDialog = getMainDialog();
         $.IupShowXY(mainDialog.getIhandle(), mainDialog.getX(), mainDialog.getY());

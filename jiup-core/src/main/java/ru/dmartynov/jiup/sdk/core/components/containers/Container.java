@@ -29,7 +29,8 @@ public abstract class Container extends Control {
 
 
     public void append(Component child) {
-        IupObject.$.IupAppend(getIhandle(), child.getIhandle());
+        $.IupAppend(getIhandle(), child.getIhandle());
+        $.IupMap(child.getIhandle());
         childs.add(child);
     }
 

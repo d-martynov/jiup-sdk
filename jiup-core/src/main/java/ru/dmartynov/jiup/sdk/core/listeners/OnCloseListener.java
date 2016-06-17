@@ -11,8 +11,4 @@ import ru.dmartynov.jiup.sdk.nativ.callbacks.dialog.CLOSE_CB;
 @Native(CLOSE_CB.class)
 public interface OnCloseListener extends DialogListener {
     int onClose();
-
-    interface Have {
-        void setOnCloseListener(OnCloseListener onCloseListener);
-    }
 }

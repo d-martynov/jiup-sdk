@@ -1,9 +1,15 @@
 import ru.dmartynov.jiup.sdk.core.Application;
+import ru.dmartynov.jiup.sdk.core.IupObject;
 import ru.dmartynov.jiup.sdk.core.components.Dialog;
 import ru.dmartynov.jiup.sdk.core.components.Size;
+import ru.dmartynov.jiup.sdk.core.components.containers.DetachBox;
+import ru.dmartynov.jiup.sdk.core.components.containers.HBox;
 import ru.dmartynov.jiup.sdk.core.components.controls.Button;
 import ru.dmartynov.jiup.sdk.core.listeners.*;
+import ru.dmartynov.jiup.sdk.core.listeners.markers.ButtonListener;
+import ru.dmartynov.jiup.sdk.nativ.Ihandle;
 import ru.dmartynov.jiup.sdk.nativ.Iup;
+import ru.dmartynov.jiup.sdk.nativ.callbacks.GLOBALMOTION_CB;
 
 /**
  * Created by Дмитрий on 04.10.2015.
@@ -16,17 +22,48 @@ public class TestAppMain extends Application {
 
     @Override
     protected Dialog getMainDialog() {
-        Button button = new Button("Тестовая кнопка");
+        IupObject.$.IupSetGlobal("INPUTCALLBACKS", "YES");
+        IupObject.$.IupSetFunction("GLOBALMOTION_CB", new GLOBALMOTION_CB() {
+            @Override
+            public int function(int x, int y, String status) {
+                System.out.println(x + "x" + y);
+                return 0;
+            }
+        });
+        final Button button = new Button("Тестовая кнопка");
+        final HBox hBox = new HBox();
+        final Button child = new Button("001");
+        final Ihandle ihandle = IupObject.$.IupElementPropertiesDialog(child.getIhandle());
+        hBox.append(child);
+        child.addListener(new OnMouseEventListener() {
+            @Override
+            public int OnMouseEvent(int button, int pressed, int x, int y, String status) {
+                System.out.println(x + "x" + y);
+                return 1;
+            }
+        });
+        hBox.append(new Button("1"));
+        hBox.append(new Button("1"));
+        hBox.append(new Button("1"));
+        DetachBox detachBox = new DetachBox(hBox);
+
+
+        final Dialog dialog = new Dialog(detachBox);
+        hBox.append(button);
         button.addListener(new OnClickListener() {
             @Override
             public int onClick() {
-                System.out.println("Button clicked");
+                hBox.append(new Button("Test..."));
+                IupObject.$.IupRefreshChildren(hBox.getIhandle());
 
                 return 1;
             }
         });
 
-        final Dialog dialog = new Dialog(button);
+        button.addListener(new ButtonListener() {
+        });
+
+
         dialog.setSize(980, Size.THIRD);
 
         Iup.INST.IupSetAttribute(dialog.getIhandle(), "DROPFILESTARGET", "YES");
@@ -148,6 +185,13 @@ public class TestAppMain extends Application {
             }
         });
 
+        dialog.addListener(new OnFocusLossListener() {
+            @Override
+            public int onFocusLoss() {
+                System.out.println("Focus LOSS");
+                return 0;
+            }
+        });
 
         return dialog;
     }
