@@ -1,4 +1,4 @@
-package ru.dmartynov.jiup.sdk.core.components;
+package ru.dmartynov.jiup.sdk.core.attributes;
 
 /**
  * Created by Дмитрий on 04.10.2015.

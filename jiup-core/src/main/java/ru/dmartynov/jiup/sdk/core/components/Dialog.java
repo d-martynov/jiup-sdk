@@ -1,13 +1,14 @@
 package ru.dmartynov.jiup.sdk.core.components;
 
 import ru.dmartynov.jiup.sdk.core.IupObject;
+import ru.dmartynov.jiup.sdk.core.attributes.SizeAttr;
 import ru.dmartynov.jiup.sdk.core.listeners.markers.DialogListener;
 import ru.dmartynov.jiup.sdk.nativ.Iup;
 
 /**
  * Created by Дмитрий on 04.10.2015.
  */
-public class Dialog extends IupObject<DialogListener> {
+public class Dialog extends IupObject<DialogListener> implements SizeAttr {
     private int x = Iup.IUP_CENTER;
     private int y = Iup.IUP_CENTER;
 
