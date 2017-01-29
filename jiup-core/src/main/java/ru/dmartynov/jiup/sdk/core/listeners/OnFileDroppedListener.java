@@ -4,6 +4,7 @@ import ru.dmartynov.jiup.sdk.core.annotations.Native;
 import ru.dmartynov.jiup.sdk.core.annotations.NativeMap;
 import ru.dmartynov.jiup.sdk.core.listeners.markers.CommonListener;
 import ru.dmartynov.jiup.sdk.core.listeners.markers.DialogListener;
+import ru.dmartynov.jiup.sdk.core.listeners.markers.LabelListener;
 import ru.dmartynov.jiup.sdk.nativ.callbacks.DROPFILES_CB;
 
 /**
@@ -15,6 +16,6 @@ import ru.dmartynov.jiup.sdk.nativ.callbacks.DROPFILES_CB;
         @NativeMap(nativeParamIndex = 3, targetParamIndex = 2),
         @NativeMap(nativeParamIndex = 4, targetParamIndex = 3)
 })
-public interface OnFileDroppedListener extends DialogListener {
+public interface OnFileDroppedListener extends DialogListener, LabelListener {
     int onFileDropped(String fileName, int num, int x, int y);
 }

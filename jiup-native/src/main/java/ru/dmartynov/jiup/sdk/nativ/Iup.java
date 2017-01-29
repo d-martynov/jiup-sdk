@@ -576,6 +576,8 @@ enum{IUP_SBUP,   IUP_SBDN,    IUP_SBPGUP,   IUP_SBPGDN,    IUP_SBPOSV, IUP_SBDRA
     int IUP_GETPARAM_CANCEL = IUP_GETPARAM_BUTTON2;
     int IUP_GETPARAM_HELP = IUP_GETPARAM_BUTTON3;
 
+    Ihandle IupAnimatedLabel(Ihandle... animation);
+
 
 /************************************************************************/
 /*                   Record Input Modes                                 */

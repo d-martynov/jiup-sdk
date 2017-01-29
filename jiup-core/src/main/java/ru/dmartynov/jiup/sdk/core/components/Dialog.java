@@ -39,8 +39,4 @@ public class Dialog extends IupObject<DialogListener> implements SizeAttr {
         return child;
     }
 
-    public void setChild(Component child) {
-        this.child = child;
-    }
-
 }

@@ -8,7 +8,9 @@ import ru.dmartynov.jiup.sdk.core.listeners.markers.ButtonListener;
 /**
  * Created by Дмитрий on 02.10.2015.
  */
-public class Button extends Control<ButtonListener> implements ActiveAttr, SizeAttr, AlignmentAttr, BgColorAttr, CanFocusAttr {
+public class Button extends Control<ButtonListener> implements CommonAttrs, AlignmentAttr, BgColorAttr, CanFocusAttr,
+        FlatAttr, FgColorAttr, ImPressBorderAttr, ImagePositionAttr, MarkupAttr, PaddingAttr, SpacingAttr, TitleAttr,
+        ImageAttr, ImInactiveAttr, ImPressAttr {
 
     public Button(String title) {
         super($.IupButton(title, null));
