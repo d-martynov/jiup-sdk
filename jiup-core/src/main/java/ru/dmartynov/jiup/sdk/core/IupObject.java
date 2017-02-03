@@ -7,6 +7,7 @@ import ru.dmartynov.jiup.sdk.nativ.Icallback;
 import ru.dmartynov.jiup.sdk.nativ.Ihandle;
 import ru.dmartynov.jiup.sdk.nativ.Iup;
 
+import java.io.File;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
@@ -42,17 +43,13 @@ public abstract class IupObject<ListenerClass> {
         final NativeMap[] nativeMaps = nativeAnnotation.callbackMap();
         final Method targetMethod = listenerClass.getMethods()[0];
 
-        InvocationHandler invocationHandler = new InvocationHandler() {
-            @Override
-            public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-                if (icallbackClass.getMethods()[0].getName().equals(method.getName())) {
-                    Object[] parms = mapParams(nativeMaps, args);
-                    return targetMethod.invoke(listener, parms);
-                }
-                return method.invoke(listener, args);
+        InvocationHandler invocationHandler = (proxy, method, args) -> {
+            if (icallbackClass.getMethods()[0].getName().equals(method.getName())) {
+                Object[] parms = mapParams(nativeMaps, args);
+                return targetMethod.invoke(listener, parms);
             }
+            return method.invoke(listener, args);
         };
-
 
         Icallback icallbackProxy = (Icallback) Proxy.newProxyInstance(icallbackClass.getClassLoader(), new Class[]{icallbackClass},
                 invocationHandler);
