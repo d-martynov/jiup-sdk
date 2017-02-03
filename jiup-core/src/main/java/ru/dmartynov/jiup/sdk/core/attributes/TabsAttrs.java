@@ -65,7 +65,7 @@ public interface TabsAttrs extends BgColorAttr, CommonAttrs, ExpandAttr, FgColor
      * @param orientation
      */
     default void setTabOrientation(Orientation orientation){
-        $.IupSetAttribute(((IupObject) this).getIhandle(), "TABORIENTATION", orientation.getSystemName());
+        $.IupSetAttribute(((IupObject) this).getIhandle(), "TABORIENTATION", orientation.name());
     }
 
     /**
