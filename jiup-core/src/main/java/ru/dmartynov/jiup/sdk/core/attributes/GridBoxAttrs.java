@@ -95,8 +95,8 @@ public interface GridBoxAttrs extends SizeAttr,RasterSizeAttr,FontAttr,PositionA
      * CGAPLIN is in the same units of the SIZE attribute for the height. Default: "0".
      * @param size
      */
-    default void setCGapLine(Size size){
-        $.IupSetAttribute(((IupObject) this).getIhandle(), "CGAPLIN", size.name());
+    default void setCGapLine(int size) {
+        $.IupSetAttribute(((IupObject) this).getIhandle(), "CGAPLIN", size + "");
     }
 
     /**
@@ -112,8 +112,8 @@ public interface GridBoxAttrs extends SizeAttr,RasterSizeAttr,FontAttr,PositionA
      * CGAPCOL is in the same units of the SIZE attribute for the height. Default: "0".
      * @param size
      */
-    default void setCGapColumn(Size size){
-        $.IupSetAttribute(((IupObject) this).getIhandle(), "CGAPCOL", size.name());
+    default void setCGapColumn(int size) {
+        $.IupSetAttribute(((IupObject) this).getIhandle(), "CGAPCOL", size + "");
     }
 
     /**

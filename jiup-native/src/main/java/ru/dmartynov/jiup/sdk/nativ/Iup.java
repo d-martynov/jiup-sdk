@@ -578,6 +578,8 @@ enum{IUP_SBUP,   IUP_SBDN,    IUP_SBPGUP,   IUP_SBPGDN,    IUP_SBPOSV, IUP_SBDRA
 
     Ihandle IupAnimatedLabel(Ihandle... animation);
 
+    Ihandle IupFlatFrame(Ihandle... childs);
+
 
 /************************************************************************/
 /*                   Record Input Modes                                 */

@@ -10,7 +10,7 @@ import ru.dmartynov.jiup.sdk.core.components.Control;
 public class TabsVertical extends Container implements TabsAttrs{
 
     public TabsVertical(Control children) {
-        super($.IupTabsv(children.getIhandle()));
+        super($.IupTabsv(null));
     }
 
     @Override

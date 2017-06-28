@@ -1,6 +1,5 @@
 package ru.dmartynov.jiup.sdk.core.attributes;
 
-import javafx.geometry.Pos;
 import ru.dmartynov.jiup.sdk.core.IupObject;
 
 import static ru.dmartynov.jiup.sdk.core.IupObject.$;
@@ -66,6 +65,10 @@ public interface TabsAttrs extends BgColorAttr, CommonAttrs, ExpandAttr, FgColor
      */
     default void setTabOrientation(Orientation orientation){
         $.IupSetAttribute(((IupObject) this).getIhandle(), "TABORIENTATION", orientation.name());
+    }
+
+    default Orientation getTabOrientation() {
+       return Orientation.valueOf($.IupGetAttribute(((IupObject) this).getIhandle(), "TABORIENTATION"));
     }
 
     /**
