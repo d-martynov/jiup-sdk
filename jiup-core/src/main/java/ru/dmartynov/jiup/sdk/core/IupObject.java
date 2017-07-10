@@ -7,7 +7,6 @@ import ru.dmartynov.jiup.sdk.nativ.Icallback;
 import ru.dmartynov.jiup.sdk.nativ.Ihandle;
 import ru.dmartynov.jiup.sdk.nativ.Iup;
 
-import java.io.File;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
@@ -28,10 +27,6 @@ public abstract class IupObject<ListenerClass> {
     public Ihandle getIhandle() {
         return ihandle;
     }
-
-
-
-
 
     public <T extends ListenerClass> void addListener(final T listener) {
         Class<?> listenerClass = listener.getClass().getInterfaces()[0];
@@ -54,7 +49,7 @@ public abstract class IupObject<ListenerClass> {
         Icallback icallbackProxy = (Icallback) Proxy.newProxyInstance(icallbackClass.getClassLoader(), new Class[]{icallbackClass},
                 invocationHandler);
 
-        Iup.INST.IupSetCallback(getIhandle(), icallbackClass.getSimpleName(), icallbackProxy);
+        $.IupSetCallback(getIhandle(), icallbackClass.getSimpleName(), icallbackProxy);
     }
 
     private Object[] mapParams(NativeMap[] callbackMap, Object[] nativeParams) throws IllegalAccessException, InstantiationException {

@@ -96,7 +96,9 @@ public class TestAppMain extends Application {
 
         VBox root = new VBox();
 
+
         GridBox gridBox = new GridBox();
+        gridBox.setExpand(Expand.HORIZONTAL);
         gridBox.append(new Label("C1L1"));
         gridBox.append(new Label("C1L2"));
         $.IupAppend(gridBox.getIhandle(),$.IupText("C1L3"));

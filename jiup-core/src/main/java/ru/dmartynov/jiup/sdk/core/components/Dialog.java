@@ -1,6 +1,7 @@
 package ru.dmartynov.jiup.sdk.core.components;
 
 import ru.dmartynov.jiup.sdk.core.IupObject;
+import ru.dmartynov.jiup.sdk.core.attributes.CursorAttr;
 import ru.dmartynov.jiup.sdk.core.attributes.DialogSizeAttr;
 import ru.dmartynov.jiup.sdk.core.attributes.PlacementAttr;
 import ru.dmartynov.jiup.sdk.core.attributes.ResizeAttr;
@@ -10,7 +11,7 @@ import ru.dmartynov.jiup.sdk.nativ.Iup;
 /**
  * Created by Дмитрий on 04.10.2015.
  */
-public class Dialog extends IupObject<DialogListener> implements DialogSizeAttr, PlacementAttr, ResizeAttr {
+public class Dialog extends IupObject<DialogListener> implements DialogSizeAttr, PlacementAttr, ResizeAttr, CursorAttr {
     private int x = Iup.IUP_CENTER;
     private int y = Iup.IUP_CENTER;
 

@@ -1,0 +1,445 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ru.dmartynov.jiup.sdk.core.attributes"
+            elementFormDefault="qualified"
+            attributeFormDefault="qualified">
+
+    <xsd:complexType name="control"/>
+
+    <xsd:attributeGroup name="PaddingAttr">
+        <xsd:attribute name="Padding.horizontal" type="xsd:integer"/>
+        <xsd:attribute name="Padding.vertical" type="xsd:integer"/>
+    </xsd:attributeGroup>
+    <xsd:attributeGroup name="FontAttr">
+        <xsd:attribute name="Font.arg0" type="xsd:string"/>
+    </xsd:attributeGroup>
+    <xsd:attributeGroup name="DialogSizeAttr">
+        <xsd:attribute name="Size.width">
+            <xsd:simpleType>
+                <xsd:union>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:enumeration value="FULL"/>
+                            <xsd:enumeration value="HALF"/>
+                            <xsd:enumeration value="THIRD"/>
+                            <xsd:enumeration value="QUARTER"/>
+                            <xsd:enumeration value="EIGHTH"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:integer"/>
+                    </xsd:simpleType>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:enumeration value="FULL"/>
+                            <xsd:enumeration value="HALF"/>
+                            <xsd:enumeration value="THIRD"/>
+                            <xsd:enumeration value="QUARTER"/>
+                            <xsd:enumeration value="EIGHTH"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:union>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="Size.height">
+            <xsd:simpleType>
+                <xsd:union>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:enumeration value="FULL"/>
+                            <xsd:enumeration value="HALF"/>
+                            <xsd:enumeration value="THIRD"/>
+                            <xsd:enumeration value="QUARTER"/>
+                            <xsd:enumeration value="EIGHTH"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:enumeration value="FULL"/>
+                            <xsd:enumeration value="HALF"/>
+                            <xsd:enumeration value="THIRD"/>
+                            <xsd:enumeration value="QUARTER"/>
+                            <xsd:enumeration value="EIGHTH"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:integer"/>
+                    </xsd:simpleType>
+                </xsd:union>
+            </xsd:simpleType>
+        </xsd:attribute>
+    </xsd:attributeGroup>
+    <xsd:attributeGroup name="ImPressBorderAttr">
+        <xsd:attribute name="ImpressBorder.impressBorder" type="xsd:boolean"/>
+    </xsd:attributeGroup>
+    <xsd:attributeGroup name="AlignmentAttr">
+        <xsd:attribute name="Alignment.vAlignment">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="ALEFT"/>
+                    <xsd:enumeration value="ACENTER"/>
+                    <xsd:enumeration value="ARIGHT"/>
+                    <xsd:enumeration value="ATOP"/>
+                    <xsd:enumeration value="ABOTTOM"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="Alignment.hAlignment">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="ALEFT"/>
+                    <xsd:enumeration value="ACENTER"/>
+                    <xsd:enumeration value="ARIGHT"/>
+                    <xsd:enumeration value="ATOP"/>
+                    <xsd:enumeration value="ABOTTOM"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+    </xsd:attributeGroup>
+    <xsd:attributeGroup name="BgColorAttr">
+        <xsd:attribute name="BgColor.hex" type="xsd:string"/>
+    </xsd:attributeGroup>
+    <xsd:attributeGroup name="ValuePosAttr">
+        <xsd:attribute name="ValuePos.pos" type="xsd:integer"/>
+    </xsd:attributeGroup>
+    <xsd:attributeGroup name="ZOrderAttr">
+        <xsd:attribute name="ZOrder.zOrder">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="TOP"/>
+                    <xsd:enumeration value="BOTTOM"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+    </xsd:attributeGroup>
+    <xsd:attributeGroup name="TitleAttr">
+        <xsd:attribute name="Title.title" type="xsd:string"/>
+    </xsd:attributeGroup>
+    <xsd:attributeGroup name="FlatAttr">
+        <xsd:attribute name="Flat.flat" type="xsd:boolean"/>
+    </xsd:attributeGroup>
+    <xsd:attributeGroup name="MinSizeAttr">
+        <xsd:attribute name="MinSize.width" type="xsd:integer"/>
+        <xsd:attribute name="MinSize.height" type="xsd:integer"/>
+    </xsd:attributeGroup>
+    <xsd:attributeGroup name="DecorationAttr">
+        <xsd:attribute name="Decoration.decoration" type="xsd:boolean"/>
+        <xsd:attribute name="DecorOffset.x" type="xsd:integer"/>
+        <xsd:attribute name="DecorOffset.y" type="xsd:integer"/>
+        <xsd:attribute name="DecorSize.width" type="xsd:integer"/>
+        <xsd:attribute name="DecorSize.height" type="xsd:integer"/>
+    </xsd:attributeGroup>
+    <xsd:attributeGroup name="SpacingAttr">
+        <xsd:attribute name="Spacing.spacing" type="xsd:integer"/>
+    </xsd:attributeGroup>
+    <xsd:attributeGroup name="WordWrapAttr">
+        <xsd:attribute name="WordWrap.wordWrap" type="xsd:boolean"/>
+    </xsd:attributeGroup>
+    <xsd:attributeGroup name="ActiveAttr">
+        <xsd:attribute name="Active.active" type="xsd:boolean"/>
+    </xsd:attributeGroup>
+    <xsd:attributeGroup name="ExpandAttr">
+        <xsd:attribute name="Expand.expand">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="YES"/>
+                    <xsd:enumeration value="HORIZONTAL"/>
+                    <xsd:enumeration value="VERTICAL"/>
+                    <xsd:enumeration value="HORIZONTALFREE"/>
+                    <xsd:enumeration value="VERTICALFREE"/>
+                    <xsd:enumeration value="NO"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+    </xsd:attributeGroup>
+    <xsd:attributeGroup name="RasterSizeAttr">
+        <xsd:attribute name="RasterSize.width" type="xsd:integer"/>
+        <xsd:attribute name="RasterSize.height" type="xsd:integer"/>
+    </xsd:attributeGroup>
+    <xsd:attributeGroup name="PlacementAttr">
+        <xsd:attribute name="Placement.placement">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="FULL"/>
+                    <xsd:enumeration value="MAXIMIZED"/>
+                    <xsd:enumeration value="MINIMIZED"/>
+                    <xsd:enumeration value="NORMAL"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+    </xsd:attributeGroup>
+    <xsd:attributeGroup name="ResizeAttr">
+        <xsd:attribute name="Resize.resize" type="xsd:boolean"/>
+    </xsd:attributeGroup>
+    <xsd:attributeGroup name="TipAttr">
+        <xsd:attribute name="TipBalloon.tipBalloon" type="xsd:boolean"/>
+        <xsd:attribute name="TipVisible.visible" type="xsd:boolean"/>
+        <xsd:attribute name="TipRect.y1" type="xsd:integer"/>
+        <xsd:attribute name="TipRect.y2" type="xsd:integer"/>
+        <xsd:attribute name="TipRect.x1" type="xsd:integer"/>
+        <xsd:attribute name="TipRect.x2" type="xsd:integer"/>
+        <xsd:attribute name="TipBalloonTitle.tipBalloonTitle" type="xsd:string"/>
+        <xsd:attribute name="TipMarkup.markup" type="xsd:boolean"/>
+        <xsd:attribute name="Tip.tip" type="xsd:string"/>
+        <xsd:attribute name="TipBalloonTitleIcon.icon">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="NO"/>
+                    <xsd:enumeration value="INFO"/>
+                    <xsd:enumeration value="WARNING"/>
+                    <xsd:enumeration value="ERROR"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="TipDelay.delay" type="xsd:integer"/>
+    </xsd:attributeGroup>
+    <xsd:attributeGroup name="DropdownAttr">
+        <xsd:attribute name="Dropdown.dropdown" type="xsd:boolean"/>
+    </xsd:attributeGroup>
+    <xsd:attributeGroup name="DropFilesTargetAttr">
+        <xsd:attribute name="DropFilesTarget.dropFilesTargetAttr" type="xsd:boolean"/>
+    </xsd:attributeGroup>
+    <xsd:attributeGroup name="TabsAttrs">
+        <xsd:attribute name="Multiline.arg0" type="xsd:boolean"/>
+        <xsd:attribute name="ChildOffset.arg1" type="xsd:integer"/>
+        <xsd:attribute name="ChildOffset.arg0" type="xsd:integer"/>
+        <xsd:attribute name="TabPadding.arg0" type="xsd:integer"/>
+        <xsd:attribute name="Title.arg1" type="xsd:integer"/>
+        <xsd:attribute name="Title.arg0" type="xsd:string"/>
+        <xsd:attribute name="TabType.arg0">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="LEFT"/>
+                    <xsd:enumeration value="RIGHT"/>
+                    <xsd:enumeration value="TOP"/>
+                    <xsd:enumeration value="BOTTOM"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="ShowCloseAttr.arg0" type="xsd:boolean"/>
+        <xsd:attribute name="ActiveTab.arg0" type="xsd:integer"/>
+        <xsd:attribute name="TabOrientation.arg0">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="HORIZONTAL"/>
+                    <xsd:enumeration value="VERTICAL"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+    </xsd:attributeGroup>
+    <xsd:attributeGroup name="ProgressBarAttrs">
+        <xsd:attribute name="MaxValue.arg0" type="xsd:integer"/>
+        <xsd:attribute name="Value.arg0" type="xsd:integer"/>
+        <xsd:attribute name="MinValue.arg0" type="xsd:integer"/>
+    </xsd:attributeGroup>
+    <xsd:attributeGroup name="BorderAttr">
+        <xsd:attribute name="Border.border" type="xsd:boolean"/>
+    </xsd:attributeGroup>
+    <xsd:attributeGroup name="CanFocusAttr">
+        <xsd:attribute name="CanFocus.canFocus" type="xsd:boolean"/>
+    </xsd:attributeGroup>
+    <xsd:attributeGroup name="MarkupAttr">
+        <xsd:attribute name="Markup.markup" type="xsd:boolean"/>
+    </xsd:attributeGroup>
+    <xsd:attributeGroup name="GridBoxAttrs">
+        <xsd:attribute name="Orientation.arg0">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="HORIZONTAL"/>
+                    <xsd:enumeration value="VERTICAL"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="NCMargin.arg1">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="FULL"/>
+                    <xsd:enumeration value="HALF"/>
+                    <xsd:enumeration value="THIRD"/>
+                    <xsd:enumeration value="QUARTER"/>
+                    <xsd:enumeration value="EIGHTH"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="NCMargin.arg0">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="FULL"/>
+                    <xsd:enumeration value="HALF"/>
+                    <xsd:enumeration value="THIRD"/>
+                    <xsd:enumeration value="QUARTER"/>
+                    <xsd:enumeration value="EIGHTH"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="SizeColumn.arg0" type="xsd:integer"/>
+        <xsd:attribute name="FitToChildrenLine.arg0" type="xsd:integer"/>
+        <xsd:attribute name="AlignmentHorizontalByIndex.arg1" type="xsd:integer"/>
+        <xsd:attribute name="AlignmentHorizontalByIndex.arg0">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="ALEFT"/>
+                    <xsd:enumeration value="ACENTER"/>
+                    <xsd:enumeration value="ARIGHT"/>
+                    <xsd:enumeration value="ATOP"/>
+                    <xsd:enumeration value="ABOTTOM"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="Margin.arg1" type="xsd:integer"/>
+        <xsd:attribute name="Margin.arg0" type="xsd:integer"/>
+        <xsd:attribute name="AlignmentVertical.arg0">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="ALEFT"/>
+                    <xsd:enumeration value="ACENTER"/>
+                    <xsd:enumeration value="ARIGHT"/>
+                    <xsd:enumeration value="ATOP"/>
+                    <xsd:enumeration value="ABOTTOM"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="FitToChildrenColumn.arg0" type="xsd:integer"/>
+        <xsd:attribute name="NormalizeSize.arg0">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="NO"/>
+                    <xsd:enumeration value="HORIZONTAL"/>
+                    <xsd:enumeration value="VERTICAL"/>
+                    <xsd:enumeration value="BOTH"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="HomoGeneousLine.arg0" type="xsd:boolean"/>
+        <xsd:attribute name="NumberOfDivs.arg0" type="xsd:integer"/>
+        <xsd:attribute name="GapColumn.arg0" type="xsd:integer"/>
+        <xsd:attribute name="ExpandChildren.arg0">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="YES"/>
+                    <xsd:enumeration value="HORIZONTAL"/>
+                    <xsd:enumeration value="VERTICAL"/>
+                    <xsd:enumeration value="HORIZONTALFREE"/>
+                    <xsd:enumeration value="VERTICALFREE"/>
+                    <xsd:enumeration value="NO"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="NCGapLine.arg0">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="FULL"/>
+                    <xsd:enumeration value="HALF"/>
+                    <xsd:enumeration value="THIRD"/>
+                    <xsd:enumeration value="QUARTER"/>
+                    <xsd:enumeration value="EIGHTH"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="AlignmentHorizontal.arg0">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="ALEFT"/>
+                    <xsd:enumeration value="ACENTER"/>
+                    <xsd:enumeration value="ARIGHT"/>
+                    <xsd:enumeration value="ATOP"/>
+                    <xsd:enumeration value="ABOTTOM"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="NCGapColumn.arg0">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="FULL"/>
+                    <xsd:enumeration value="HALF"/>
+                    <xsd:enumeration value="THIRD"/>
+                    <xsd:enumeration value="QUARTER"/>
+                    <xsd:enumeration value="EIGHTH"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="CMargin.arg1">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="FULL"/>
+                    <xsd:enumeration value="HALF"/>
+                    <xsd:enumeration value="THIRD"/>
+                    <xsd:enumeration value="QUARTER"/>
+                    <xsd:enumeration value="EIGHTH"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="CMargin.arg0">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="FULL"/>
+                    <xsd:enumeration value="HALF"/>
+                    <xsd:enumeration value="THIRD"/>
+                    <xsd:enumeration value="QUARTER"/>
+                    <xsd:enumeration value="EIGHTH"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="HomoGeneousColumn.arg0" type="xsd:boolean"/>
+        <xsd:attribute name="GapLine.arg0" type="xsd:integer"/>
+        <xsd:attribute name="NGapLine.arg0" type="xsd:integer"/>
+        <xsd:attribute name="CGapLine.arg0" type="xsd:integer"/>
+        <xsd:attribute name="AlignmentVerticalByIndex.arg1" type="xsd:integer"/>
+        <xsd:attribute name="AlignmentVerticalByIndex.arg0">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="ALEFT"/>
+                    <xsd:enumeration value="ACENTER"/>
+                    <xsd:enumeration value="ARIGHT"/>
+                    <xsd:enumeration value="ATOP"/>
+                    <xsd:enumeration value="ABOTTOM"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="SizeLine.arg0" type="xsd:integer"/>
+        <xsd:attribute name="CGapColumn.arg0" type="xsd:integer"/>
+        <xsd:attribute name="NGapColumn.arg0" type="xsd:integer"/>
+    </xsd:attributeGroup>
+    <xsd:attributeGroup name="EllipsisAttr">
+        <xsd:attribute name="EllipsisAttr.ellipsis" type="xsd:boolean"/>
+    </xsd:attributeGroup>
+    <xsd:attributeGroup name="VisibleAttr">
+        <xsd:attribute name="Visible.visible" type="xsd:boolean"/>
+    </xsd:attributeGroup>
+    <xsd:attributeGroup name="NMarginAttr">
+        <xsd:attribute name="NMargin.width" type="xsd:integer"/>
+        <xsd:attribute name="NMargin.height" type="xsd:integer"/>
+    </xsd:attributeGroup>
+    <xsd:attributeGroup name="SizeAttr">
+        <xsd:attribute name="Size.width" type="xsd:integer"/>
+        <xsd:attribute name="Size.height" type="xsd:integer"/>
+    </xsd:attributeGroup>
+    <xsd:attributeGroup name="MaxSizeAttr">
+        <xsd:attribute name="MaxSize.width" type="xsd:integer"/>
+        <xsd:attribute name="MaxSize.height" type="xsd:integer"/>
+    </xsd:attributeGroup>
+    <xsd:attributeGroup name="SeparatorAttr">
+        <xsd:attribute name="Separator.separator">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="HORIZONTAL"/>
+                    <xsd:enumeration value="VERTICAL"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+    </xsd:attributeGroup>
+    <xsd:attributeGroup name="FgColorAttr">
+        <xsd:attribute name="FgColor.hex" type="xsd:string"/>
+    </xsd:attributeGroup>
+    <xsd:attributeGroup name="ImagePositionAttr">
+        <xsd:attribute name="ImagePositionAttr.position">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="LEFT"/>
+                    <xsd:enumeration value="RIGHT"/>
+                    <xsd:enumeration value="TOP"/>
+                    <xsd:enumeration value="BOTTOM"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+    </xsd:attributeGroup>
+</xsd:schema>
